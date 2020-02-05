@@ -1,0 +1,214 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>
+    name: "main"
+
+    text_1: text_1
+    text_2: text_2
+    test_button: test_button
+    wc_text1: wc_text1
+    wc_text2: wc_text2
+    jaccard_value: jaccard_value
+    result: result
+
+    Label:
+        text: "Text 1"
+        size_hint: (.05, .05)
+        pos_hint: {"x": .23, "top": .99}
+
+    TextInput:
+        id: text_1
+        text: "Enter Text..."
+        size_hint: (.48, .50)
+        pos_hint: {"x": .01, "top": .93}
+
+    Label:
+        text: "Text 2"
+        size_hint: (.05, .05)
+        pos_hint: {"x": .72, "top": .99}
+
+    TextInput:
+        id: text_2
+        text: "Enter Text..."
+        size_hint: (.48, .50)
+        pos_hint: {"x": .51, "top": .93}
+
+    Button:
+        id: test_button
+        text: "Test"
+        font_size: 50
+        background_color: (1, 10, 1, .7)
+        size_hint: (.5, .07)
+        pos_hint: {"x": .25, "top": .37}
+        on_press: test_button.opacity = .3
+        on_release:
+            test_button.opacity = 1
+            root.testButtonPressed()
+
+    Label:
+        text: "Word Count of text 1:"
+        font_size: 35
+        size_hint: (.05, .05)
+        pos_hint: {"x": .12, "top": .25}
+
+    Label:
+        id: wc_text1
+        text: ""
+        font_size: 35
+        size_hint: (.05, .05)
+        pos_hint: {"x": .25, "top": .25}
+
+    Label:
+        text: "Word Count of text 2:"
+        font_size: 35
+        size_hint: (.05, .05)
+        pos_hint: {"x": .42, "top": .25}
+
+    Label:
+        id: wc_text2
+        text: ""
+        font_size: 35
+        size_hint: (.05, .05)
+        pos_hint: {"x": .55, "top": .25}
+
+    Label:
+        text: "Jaccard similarity index:"
+        font_size: 35
+        size_hint: (.05, .05)
+        pos_hint: {"x": .73, "top": .25}
+        bold: True
+
+    Label:
+        id: jaccard_value
+        text: ""
+        font_size: 35
+        size_hint: (.05, .05)
+        color: (1, 1, .4, 1)
+        pos_hint: {"x": .88, "top": .25}
+        bold: True
+
+    Label:
+        text: "Result:"
+        font_size: 100
+        size_hint: (.05, .05)
+        pos_hint: {"x": .10, "top": .10}
+
+    Label:
+        id: result
+        text: ""
+        font_size: 100
+        size_hint: (.05, .05)
+        pos_hint: {"x": .27, "top": .10}
+
+    Button:
+        text: "More Info"
+        font_size: 35
+        size_hint: (.20, .07)
+        pos_hint: {"x": .75, "top": .11}
+        on_release:
+            app.root.current = "Second"
+            root.manager.transition.direction = 'left'
+
+
+<SecondWindow>
+    name: "Second"
+
+    commonstringbox: commonstringbox
+    calculate_button: calculate_button
+    commonstringlength: commonstringlength
+    wc_text1: wc_text1
+    wc_text2: wc_text2
+    jaccard_value: jaccard_value
+
+    Button:
+        text: "Go Back"
+        font_size: 35
+        size_hint: (.20, .07)
+        pos_hint: {"x": .05, "top": .11}
+        on_release:
+            app.root.current = "main"
+            root.manager.transition.direction = 'right'
+
+    Label:
+        text: "Longest Common Sequence of Words"
+        font_size: 50
+        size_hint: (.05, .05)
+        pos_hint: {"x": .46, "top": .98}
+
+    TextInput:
+        id: commonstringbox
+        text: ""
+        size_hint: (.96, .40)
+        pos_hint: {"x": .02, "top": .91}
+
+    Button:
+        id: calculate_button
+        text: "Calculate"
+        font_size: 30
+        background_color: (1, 10, 1, .7)
+        size_hint: (.3, .05)
+        pos_hint: {"x": .33, "top": .48}
+        on_press: calculate_button.opacity = .3
+        on_release:
+            calculate_button.opacity = 1
+            root.calculateButtonPressed()
+
+    Label:
+        text: "Other Information"
+        font_size: 28
+        size_hint: (.05, .05)
+        pos_hint: {"x": .46, "top": .41}
+
+    Label:
+        text: "Size of Longest Common Sequence of Words:"
+        font_size: 25
+        size_hint: (.05, .05)
+        pos_hint: {"x": .30, "top": .35}
+
+    Label:
+        id: commonstringlength
+        text: ""
+        font_size: 25
+        size_hint: (.05, .05)
+        pos_hint: {"x": .48, "top": .35}
+
+    Label:
+        text: "Word count of Text 1:"
+        font_size: 25
+        size_hint: (.05, .05)
+        pos_hint: {"x": .38, "top": .30}
+
+    Label:
+        id: wc_text1
+        text: ""
+        font_size: 25
+        size_hint: (.05, .05)
+        pos_hint: {"x": .48, "top": .30}
+
+    Label:
+        text: "Word count of Text 2:"
+        font_size: 25
+        size_hint: (.05, .05)
+        pos_hint: {"x": .38, "top": .25}
+
+    Label:
+        id: wc_text2
+        text: ""
+        font_size: 25
+        size_hint: (.05, .05)
+        pos_hint: {"x": .48, "top": .25}
+
+    Label:
+        text: "Jaccard similarity index:"
+        font_size: 25
+        size_hint: (.05, .05)
+        pos_hint: {"x": .37, "top": .20}
+
+    Label:
+        id: jaccard_value
+        text: ""
+        font_size: 25
+        size_hint: (.05, .05)
+        pos_hint: {"x": .48, "top": .20}
