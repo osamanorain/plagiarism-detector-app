@@ -50,7 +50,6 @@ class MainWindow(Screen):
         # Set the static values for other windows to use (secondwindow)
         MainWindow.text1 = self.text_1.text
         MainWindow.text2 = self.text_2.text
-        MainWindow.commonstringlength = self.jaccard_value.text
         MainWindow.text1wordcount = self.wc_text1.text
         MainWindow.text2wordcount = self.wc_text2.text
         MainWindow.jaccard_value_copy = self.jaccard_value.text
@@ -67,14 +66,14 @@ class SecondWindow(Screen):
 
     def calculateButtonPressed(self):
         # Display the common string
-        commonstring = getCommonString(MainWindow.text1, MainWindow.text2)
+        commonstring, length = getCommonString(MainWindow.text1, MainWindow.text2)
         self.commonstringbox.text = commonstring
 
         # Display information about the texts on the second window
-        self.commonstringlength.text = MainWindow.commonstringlength
+        self.commonstringlength.text = length
         self.wc_text1.text = MainWindow.text1wordcount
         self.wc_text2.text = MainWindow.text2wordcount
-        self.jaccard_value.text = MainWindow.text1wordcount
+        self.jaccard_value.text = MainWindow.jaccard_value_copy
 
 
 class WindowManager(ScreenManager):
